@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <!-- 
+  <parent>
+    <groupId>com.eyun258</groupId>
+    <artifactId>platform</artifactId>
+    <version>${project.release.version}</version>
+  </parent>
+    -->
+  <groupId>com.eyun258</groupId>
+  <artifactId>platform-common</artifactId>
+  <version>${project.release.version}</version>
+  <name>platform-common</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  
+  <profiles>
+  	<profile>
+  		<id>release</id>
+  		<properties>
+  			<project.release.version>0.0.2</project.release.version>
+  			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  		</properties>
+  		<distributionManagement>
+		    <repository>
+		      <uniqueVersion>false</uniqueVersion>
+		      <id>nexus-releases-deploy</id>
+		      <name>Corporate Repository</name>
+		      <url>http://192.168.1.108:8081/repository/maven-releases</url>
+		      <layout>default</layout>
+		    </repository>
+		    <snapshotRepository>
+		      <uniqueVersion>true</uniqueVersion>
+		      <id>nexus-snapshots-deploy</id>
+		      <name>Propellors Snapshots</name>
+		      <url>http://192.168.1.108:8081/repository/maven-snapshots/</url>
+		      <layout>default</layout>
+		    </snapshotRepository>
+		  </distributionManagement>
+  	</profile>
+  	<profile>
+  		<id>snapshot</id>
+  		<properties>
+  			<project.release.version>0.0.2-SNAPSHOT</project.release.version>
+  			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  		</properties>
+  		<distributionManagement>
+		    <repository>
+		      <uniqueVersion>false</uniqueVersion>
+		      <id>nexus-releases-deploy</id>
+		      <name>Corporate Repository</name>
+		      <url>http://192.168.1.108:8081/repository/maven-releases</url>
+		      <layout>default</layout>
+		    </repository>
+		    <snapshotRepository>
+		      <uniqueVersion>true</uniqueVersion>
+		      <id>nexus-snapshots-deploy</id>
+		      <name>Propellors Snapshots</name>
+		      <url>http://192.168.1.108:8081/repository/maven-snapshots/</url>
+		      <layout>default</layout>
+		    </snapshotRepository>
+		  </distributionManagement>
+  	</profile>
+  </profiles>
+  
+</project>
